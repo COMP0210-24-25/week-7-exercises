@@ -78,7 +78,7 @@ float SIMD_sum(const float *vals, const size_t N)
 {
     size_t N_vec = N / W;
     
-    float *sums = new (std::align_val_t(32)) float[W];
+    alignas(32) float sums[W];
 
     VEC c_vals = SET_ZERO();
     VEC t_vals = SET_ZERO();
