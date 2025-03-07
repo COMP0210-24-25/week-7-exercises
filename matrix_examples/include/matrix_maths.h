@@ -10,7 +10,7 @@ void rowMajor_by_rowMajor(const T &A, const T &B, T &C, int N)
         {
             for(int k = 0; k < N; k++)
             {
-                C[i][j] = A[i][k] * B[k][j];
+                C[i][j] += A[i][k] * B[k][j];
             }
         }
     }
@@ -25,7 +25,7 @@ void rowMajor_by_colMajor(const T &A, const T &B, T &C, int N)
         {
             for(int k = 0; k < N; k++)
             {
-                C[i][j] = A[i][k] * B[j][k];
+                C[i][j] += A[i][k] * B[j][k];
             }
         }
     }
@@ -64,7 +64,7 @@ void rowMajor_by_rowMajor_flat(const T &A, const T &B, T &C, int N)
         {
             for(int k = 0; k < N; k++)
             {
-                C[i*N + j] = A[i*N + k] * B[k*N + j];
+                C[i*N + j] += A[i*N + k] * B[k*N + j];
             }
         }
     }
@@ -79,7 +79,7 @@ void rowMajor_by_colMajor_flat(const T &A, const T &B, T &C, int N)
         {
             for(int k = 0; k < N; k++)
             {
-                C[i*N + j] = A[i*N + k] * B[j*N + k];
+                C[i*N + j] += A[i*N + k] * B[j*N + k];
             }
         }
     }
